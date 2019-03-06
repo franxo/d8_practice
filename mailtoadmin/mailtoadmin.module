@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Mail to admin module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_entity_update().
+ */
+function mailtoadmin_entity_update(EntityInterface $entity) {
+
+  if ($entity->getEntityTypeId() !== 'node') {
+    return;
+  }
+
+  $admin_user = User::load(1);
+
+  $mailManager = \Drupal::service('plugin.manager.mail');
+  $module = 'mailtoadmin';
+  $key = 'node_update';
+  $to = $admin_user->getEmail();
+  $params['message'] = 'Node updated';
+  $params['node_title'] = 'Node updated';
+  $langcode = $admin_user->getPreferredLangcode();
+  $send = TRUE;
+
+  $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+  if ($result['result'] !== TRUE) {
+    \Drupal::messenger()->addMessage(t('There was a problem sending your message and it was not sent.'), 'error');
+  }
+  else {
+    \Drupal::messenger()->addMessage(t('Your message has been sent.'));
+  }
+
+}

@@ -1,0 +1,6 @@
+name: Mail to admin
+description: Send a mail to admin every time a node in updated
+package: Custom
+
+type: module
+core: 8.x
