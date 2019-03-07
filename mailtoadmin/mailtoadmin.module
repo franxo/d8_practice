@@ -7,6 +7,7 @@
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\user\Entity\User;
+use Drupal\Component\Utility\Html;
 
 /**
  * Implements hook_entity_update().
@@ -34,6 +35,25 @@ function mailtoadmin_entity_update(EntityInterface $entity) {
   }
   else {
     \Drupal::messenger()->addMessage(t('Your message has been sent.'));
+  }
+
+}
+
+/**
+ * Implements hook_mail().
+ */
+function mailtoadmin_mail($key, &$message, $params) {
+
+  $options = [
+    'langcode' => $message['langcode'],
+  ];
+
+  switch ($key) {
+    case 'node_update':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('Node Updated: @title', ['@title' => $params['title']], $options);
+      $message['body'][] = Html::escape($params['message']);
+      break;
   }
 
 }
