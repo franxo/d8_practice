@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * @file
+ * Module to create a custom page.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function custompage_help($route_name, RouteMatchInterface $route_match) {
+
+  switch ($route_name) {
+    case 'help.page.custompage':
+      // Help text for the admin section, using the module name in the path.
+      $content = t("This module creates custom pages.") . "<br>";
+      $content .= t("- One page for module help (admin/help/custompage).") . "<br>";
+      $content .= t("- One single page (custompage/simple).") . "<br>";
+      $content .= t("- One custom page with custom template (custompage/themeable).") . "<br>";
+
+      return $content;
+  }
+
+}
+
+/**
+ * Implements hook_theme().
+ */
+function custompage_theme($existing, $type, $theme, $path) {
+
+  $variables = [
+    'key-themeable' => [
+      'variables' => [
+        'page_content' => NULL,
+      ],
+      'template' => 'themeable',
+      'preprocess functions' => [
+        'template_preprocess_themeable',
+      ],
+    ],
+  ];
+  return $variables;
+}
+
+/**
+ * Template preprocess function for themeable.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - page_content.
+ */
+function template_preprocess_themeable(&$variables) {
+
+  for ($i = 0; $i < count($variables['page_content']); $i++) {
+    $mod_text = str_replace('hola', 'adios', $variables['page_content'][$i]);
+    $variables['page_content'][$i] = $mod_text;
+  }
+
+}

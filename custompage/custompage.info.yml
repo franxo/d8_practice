@@ -1,0 +1,6 @@
+name: Custom page
+description: Create custom page
+package: Custom
+
+type: module
+core: 8.x

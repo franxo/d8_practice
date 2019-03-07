@@ -1,0 +1,15 @@
+custompage.simple:
+  path: '/custompage/simple'
+  defaults:
+    _controller: '\Drupal\custompage\Controller\CustomPageController::simple'
+    _title: 'Simple Page'
+  requirements:
+    _permission: 'access content'
+
+custompage.themeable:
+  path: '/custompage/themeable'
+  defaults:
+    _controller: '\Drupal\custompage\Controller\CustomPageController::themeable'
+    _title: 'Themeable Page'
+  requirements:
+    _permission: 'access content'

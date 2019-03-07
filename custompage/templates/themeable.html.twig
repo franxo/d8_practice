@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Them implementation to newpage.
+ *
+ * Available variables:
+ *   - page_content
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="newpage">
+    {% for item in page_content %}
+        <p>{{ item }}</p>
+    {% endfor %}
+</div>

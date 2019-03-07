@@ -1,0 +1,9 @@
+custompage.simple:
+  title: Page simple
+  route_name: custompage.simple
+  menu_name: main
+
+custompage.themeable:
+  title: Page themeable
+  route_name: custompage.themeable
+  menu_name: main
