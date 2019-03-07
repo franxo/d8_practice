@@ -7,3 +7,6 @@ custompage.themeable:
   title: Page themeable
   route_name: custompage.themeable
   menu_name: main
+
+# We can't define a menu link for the custompage.params route, because it
+# requires path arguments.

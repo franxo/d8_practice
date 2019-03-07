@@ -19,6 +19,7 @@ function custompage_help($route_name, RouteMatchInterface $route_match) {
       $content .= t("- One page for module help (admin/help/custompage).") . "<br>";
       $content .= t("- One single page (custompage/simple).") . "<br>";
       $content .= t("- One custom page with custom template (custompage/themeable).") . "<br>";
+      $content .= t("- One custom page with params (custompage/params/1/12).") . "<br>";
 
       return $content;
   }

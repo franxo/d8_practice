@@ -13,3 +13,10 @@ custompage.themeable:
     _title: 'Themeable Page'
   requirements:
     _permission: 'access content'
+
+custompage.params:
+  path: '/custompage/params/{first}/{second}'
+  defaults:
+    _controller: '\Drupal\custompage\Controller\CustomPageController::params'
+  requirements:
+    _permission: 'access content'
