@@ -1,0 +1,6 @@
+name: Custom block
+description: Create custom block
+package: Custom
+
+type: module
+core: 8.x
