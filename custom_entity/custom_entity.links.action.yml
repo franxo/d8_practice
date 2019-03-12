@@ -1,0 +1,12 @@
+# All action links for this module
+
+entity.custom_entity_foo.add_form:
+  # Which route will be called by the link
+  route_name: entity.custom_entity_foo.add_form
+  title: 'Add GIS element'
+
+  # Where will the link appear, defined by route name.
+  appears_on:
+    - entity.custom_entity_foo.collection
+    - entity.custom_entity_foo.canonical
+    - custom_entity_foo.settings

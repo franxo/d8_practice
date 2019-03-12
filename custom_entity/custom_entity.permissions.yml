@@ -1,0 +1,10 @@
+'delete custom_entity_foo entity':
+  title: Delete Foo content.
+'add custom_entity_foo entity':
+  title: Add Foo content.
+'view custom_entity_foo entity':
+  title: View Foo content.
+'edit custom_entity_foo entity':
+  title: Edit Foo content.
+'administer custom_entity_foo entity':
+  title: Administer Foo settings.

@@ -1,0 +1,65 @@
+# Route name can be used in several places; e.g. links, redirects, and local
+# actions.
+entity.custom_entity_foo.canonical:
+  path: '/custom_entity_foo/{custom_entity_foo}'
+  defaults:
+    # Calls the view controller, defined in the annotation of the foo
+    # entity. This marks this route as belonging to this entity type.
+    _entity_view: 'custom_entity_foo'
+    _title: 'Foo entity element'
+  requirements:
+    # Calls the access controller of the entity, passing in the suffix ('view')
+    # as the $operation parameter to checkAccess().
+    _entity_access: 'custom_entity_foo.view'
+
+entity.custom_entity_foo.collection:
+  path: '/custom_entity_foo/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the foo entity.
+    _entity_list: 'custom_entity_foo'
+    _title: 'Foo entity list'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view custom_entity_foo entity'
+
+entity.custom_entity_foo.add_form:
+  path: '/custom_entity_foo/add'
+  defaults:
+    # Calls the form.add controller, defined in the foo entity.
+    _entity_form: custom_entity_foo.default
+    _title: 'Add Foo element'
+  requirements:
+    # Use the entity's access controller. _entity_create_access tells the router
+    # to use the access controller's checkCreateAccess() method instead of
+    # checkAccess().
+    _entity_create_access: 'custom_entity_foo'
+
+entity.custom_entity_foo.edit_form:
+  path: '/custom_entity_foo/{custom_entity_foo}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the foo entity.
+    _entity_form: custom_entity_foo.default
+    _title: 'Edit Foo entity element'
+  requirements:
+    # Calls the access controller of the entity, passing in the suffix
+    # ('update') as the $operation parameter to checkAccess().
+    _entity_access: 'custom_entity_foo.update'
+
+entity.custom_entity_foo.delete_form:
+  path: '/custom_entity_foo/{custom_entity_foo}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the foo entity.
+    _entity_form: custom_entity_foo.delete
+    _title: 'Delete Foo entity element'
+  requirements:
+    # Calls the access controller of the entity, passing in the suffix
+    # ('delete') as the $operation parameter to checkAccess().
+    _entity_access: 'custom_entity_foo.delete'
+
+custom_entity_foo.settings:
+  path: '/admin/structure/custom_entity_foo/settings'
+  defaults:
+    _form: '\Drupal\custom_entity\Form\FooSettingsForm'
+    _title: 'Foo entity settings'
+  requirements:
+    _permission: 'administer custom_entity_foo entity'

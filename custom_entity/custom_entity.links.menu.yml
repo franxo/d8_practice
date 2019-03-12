@@ -1,0 +1,11 @@
+# Define the menu links for this module
+
+entity.foo.collection:
+  title: 'Foo list'
+  route_name: entity.custom_entity_foo.collection
+  description: 'List Foo'
+foo.admin.structure.settings:
+  title: 'Foo settings'
+  description: 'Configure Foo'
+  route_name:  custom_entity_foo.settings
+  parent: system.admin_structure
