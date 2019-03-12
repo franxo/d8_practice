@@ -81,6 +81,7 @@ use Drupal\user\UserInterface;
  *   label = @Translation("Foo entity"),
  *   handlers = {
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
+ *     "views_data" = "Drupal\views\EntityViewsData",
  *     "list_builder" = "Drupal\custom_entity\Entity\Controller\FooListBuilder",
  *     "form" = {
  *       "default" = "Drupal\custom_entity\Form\FooForm",
@@ -100,7 +101,7 @@ use Drupal\user\UserInterface;
  *     "canonical" = "/custom_entity_foo/{custom_entity_foo}",
  *     "edit-form" = "/custom_entity_foo/{custom_entity_foo}/edit",
  *     "delete-form" = "/custom_entity_foo/{custom_entity_foo}/delete",
- *     "collection" = "/custom_entity_foo/list"
+ *     "collection" = "/custom_entity_foo/list",
  *   },
  *   field_ui_base_route = "custom_entity_foo.settings",
  * )
