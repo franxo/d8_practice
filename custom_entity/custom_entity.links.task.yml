@@ -1,0 +1,22 @@
+# Define the 'local' links for the module
+
+custom_entity_foo.settings_tab:
+  route_name: custom_entity_foo.settings
+  base_route: custom_entity_foo.settings
+  title: Settings
+
+custom_entity_foo.view:
+  route_name: entity.custom_entity_foo.canonical
+  base_route: entity.custom_entity_foo.canonical
+  title: View
+
+custom_entity_foo.page_edit:
+  route_name: entity.custom_entity_foo.edit_form
+  base_route: entity.custom_entity_foo.canonical
+  title: Edit
+
+custom_entity_foo.delete_confirm:
+  route_name:  entity.custom_entity_foo.delete_form
+  base_route:  entity.custom_entity_foo.canonical
+  title: Delete
+  weight: 10

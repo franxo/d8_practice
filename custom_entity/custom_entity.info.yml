@@ -1,0 +1,7 @@
+name: Custom entity
+type: module
+description: 'Practice module to create custom entities'
+package: Custom
+core: 8.x
+
+
